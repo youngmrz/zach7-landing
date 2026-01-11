@@ -25,42 +25,42 @@ Open [http://localhost:3000](http://localhost:3000) to see the landing page.
 
 ```bash
 npm run build
-npm start
 ```
 
-## Deployment to Vercel
+This creates a static export in the `out/` directory.
 
-### Option 1: Vercel Dashboard (Recommended)
+## Deployment
 
+### Cloudflare Pages (Recommended)
+
+This project is configured for **Cloudflare Pages** deployment.
+
+**Quick Start:**
 1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Vercel will auto-detect Next.js settings
-5. Configure your domain:
-   - Go to Project Settings → Domains
-   - Add `zach7.dev` as a custom domain
-   - Follow Vercel's instructions to update DNS records in Cloudflare
+2. Connect repository in Cloudflare Pages dashboard
+3. Use these build settings:
+   - **Framework preset:** Next.js (Static HTML Export)
+   - **Build command:** `npm run build`
+   - **Build output directory:** `out`
+4. Add `zach7.dev` as custom domain (automatic DNS since domain is on Cloudflare!)
 
-### Option 2: Vercel CLI
+**📖 [Full Deployment Guide](./CLOUDFLARE_DEPLOY.md)** - Step-by-step instructions with screenshots
 
-```bash
-npm install -g vercel
-vercel login
-vercel --prod
-```
+**Why Cloudflare Pages?**
+- ✅ Your domain is already on Cloudflare (no DNS changes needed)
+- ✅ Unlimited projects on free tier
+- ✅ Global CDN with 200+ edge locations
+- ✅ Automatic HTTPS
+- ✅ Instant deployments on every push
 
-## Domain Configuration
+### Alternative: Vercel
 
-This project is designed to be deployed at **zach7.dev**.
+You can also deploy to Vercel if preferred:
 
-### Cloudflare DNS Setup
-
-1. Log in to Cloudflare
-2. Select your domain `zach7.dev`
-3. Add the DNS records provided by Vercel:
-   - Type: `CNAME`
-   - Name: `@` (or `www`)
-   - Target: `cname.vercel-dns.com`
+1. Push to GitHub
+2. Import repository at [vercel.com](https://vercel.com)
+3. Add `zach7.dev` custom domain
+4. Update Cloudflare DNS with Vercel's CNAME
 
 ## Project Structure
 
