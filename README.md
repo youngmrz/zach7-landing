@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# zach7 Landing Page
+
+Beautiful landing page for zach7.dev built with modern web technologies.
+
+## Tech Stack
+
+- **Next.js 16** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS 4** - Utility-first styling
+- **Shadcn UI** (radix-nova style) - Beautiful, accessible components
+- **Lucide Icons** - Icon library
 
 ## Getting Started
 
-First, run the development server:
+### Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the landing page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deployment to Vercel
 
-To learn more about Next.js, take a look at the following resources:
+### Option 1: Vercel Dashboard (Recommended)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your repository
+4. Vercel will auto-detect Next.js settings
+5. Configure your domain:
+   - Go to Project Settings → Domains
+   - Add `zach7.dev` as a custom domain
+   - Follow Vercel's instructions to update DNS records in Cloudflare
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Option 2: Vercel CLI
 
-## Deploy on Vercel
+```bash
+npm install -g vercel
+vercel login
+vercel --prod
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Domain Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is designed to be deployed at **zach7.dev**.
+
+### Cloudflare DNS Setup
+
+1. Log in to Cloudflare
+2. Select your domain `zach7.dev`
+3. Add the DNS records provided by Vercel:
+   - Type: `CNAME`
+   - Name: `@` (or `www`)
+   - Target: `cname.vercel-dns.com`
+
+## Project Structure
+
+```
+├── app/
+│   ├── page.tsx          # Main landing page
+│   ├── layout.tsx        # Root layout with metadata
+│   └── globals.css       # Global styles with Tailwind
+├── components/
+│   └── ui/               # Shadcn UI components
+├── lib/
+│   └── utils.ts          # Utility functions
+└── public/               # Static assets
+```
+
+## Features
+
+- 🎨 Modern, clean design
+- 🌓 Dark mode support (system preference)
+- 📱 Fully responsive
+- ♿ Accessible components
+- ⚡ Optimized performance
+- 🚀 Server components for faster loads
+
+## Customization
+
+### Adding Projects
+
+Edit `app/page.tsx` to add more project cards to the "Featured Projects" section.
+
+### Updating Content
+
+All content is in `app/page.tsx`. Update the hero text, features, or footer links directly there.
+
+### Styling
+
+- Global styles: `app/globals.css`
+- Component variants: See individual component files in `components/ui/`
+- Tailwind config: Built into CSS with Tailwind 4
+
+## License
+
+© 2026 zach7. All rights reserved.
