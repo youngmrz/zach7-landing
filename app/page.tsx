@@ -113,7 +113,7 @@ export default function Home() {
                   <Badge>Active</Badge>
                 </div>
                 <CardDescription>
-                  Sync Amazon email receipts to YNAB as itemized split transactions. Built with Next.js, Prisma, and Clerk authentication.
+                  Automatically sync Amazon orders to YNAB as itemized transactions. Your bank shows $200, your budget shows every item. Built for real YNAB users.
                 </CardDescription>
               </CardHeader>
               <CardContent>

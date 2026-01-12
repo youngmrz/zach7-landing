@@ -29,9 +29,9 @@ export default function BudgetInboxProject() {
             Budget-Inbox
           </h1>
           <p className="mb-6 max-w-3xl text-xl text-muted-foreground lg:text-2xl">
-            Sync Amazon email receipts to YNAB as itemized split transactions.
+            Automatically sync Amazon email receipts to YNAB as itemized split transactions.
             <br />
-            Forward an email. Get a perfect budget entry.
+            Your bank shows $200. Your budget shows every item.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <a href="https://budget-inbox.zach7.dev" target="_blank" rel="noopener noreferrer">
@@ -49,11 +49,17 @@ export default function BudgetInboxProject() {
           <Card className="border-border bg-card">
             <CardContent className="pt-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                You love YNAB. You order from Amazon. But manually entering each item from a $200 Amazon order
-                with 15 different products? That's 15 minutes of tedious data entry, every single time.
+                You check your bank: <strong className="text-foreground">"Amazon - $247.83"</strong>
                 <br /><br />
-                Most people give up and enter one lumped transaction. But that ruins your category tracking.
-                How much did you <em>really</em> spend on groceries vs. household items vs. electronics this month?
+                But what did you actually buy? Your bank has no idea. It's a lump sum.
+                <br /><br />
+                Meanwhile, your email has the full order confirmation with every item, every price, everything that actually happened.
+                <br /><br />
+                You love YNAB. You want to track groceries separate from household items separate from electronics.
+                But manually entering 15 items from that order confirmation email? That's 15 minutes of tedious data entry you'll never get back.
+                <br /><br />
+                Most people give up and just record the lump sum. But then your budget categories are useless.
+                How much did you <em>really</em> spend on groceries this month?
               </p>
             </CardContent>
           </Card>
@@ -68,9 +74,9 @@ export default function BudgetInboxProject() {
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">1. Forward the Email</CardTitle>
+                <CardTitle className="text-xl">1. We Watch Your Inbox</CardTitle>
                 <CardDescription className="text-base">
-                  Get an Amazon order confirmation email? Just forward it to your Budget-Inbox address.
+                  Connect your Gmail. Our pub/sub service monitors for Amazon order confirmations automatically.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -80,9 +86,9 @@ export default function BudgetInboxProject() {
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                   <Sparkles className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-xl">2. AI Does the Work</CardTitle>
+                <CardTitle className="text-xl">2. AI Extracts & Categorizes</CardTitle>
                 <CardDescription className="text-base">
-                  Our system parses the email, extracts all items, and uses AI to categorize each one intelligently.
+                  When an order arrives, we parse every item, use Claude AI to intelligently categorize each one.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -94,7 +100,7 @@ export default function BudgetInboxProject() {
                 </div>
                 <CardTitle className="text-xl">3. Perfect YNAB Entry</CardTitle>
                 <CardDescription className="text-base">
-                  A fully itemized split transaction appears in YNAB with each item in the right category.
+                  A fully itemized split transaction appears in YNAB automatically. Every item in the right category.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -113,8 +119,9 @@ export default function BudgetInboxProject() {
                     What You See
                   </h3>
                   <ol className="space-y-2 text-muted-foreground">
-                    <li>1. Forward an email</li>
-                    <li>2. Done.</li>
+                    <li>1. Connect your Gmail & YNAB (one time)</li>
+                    <li>2. Shop on Amazon like normal</li>
+                    <li>3. Itemized transactions appear in YNAB automatically</li>
                   </ol>
                 </div>
                 <div>
@@ -123,16 +130,16 @@ export default function BudgetInboxProject() {
                     What Happens Behind the Scenes
                   </h3>
                   <ol className="space-y-2 text-sm text-muted-foreground">
-                    <li>1. Gmail API receives your forwarded email</li>
-                    <li>2. Inngest triggers background job processing</li>
-                    <li>3. Cheerio parses Amazon's complex HTML</li>
-                    <li>4. Claude AI analyzes and categorizes each item</li>
-                    <li>5. YNAB API creates itemized split transaction</li>
-                    <li>6. Webhook confirms success back to you</li>
-                    <li>7. Database logs everything for troubleshooting</li>
+                    <li>1. Gmail pub/sub monitors your inbox 24/7</li>
+                    <li>2. Amazon order confirmation detected instantly</li>
+                    <li>3. Inngest triggers background job processing</li>
+                    <li>4. Cheerio parses Amazon's complex HTML email</li>
+                    <li>5. Claude AI analyzes and categorizes each item</li>
+                    <li>6. YNAB API creates itemized split transaction</li>
+                    <li>7. Webhook confirms success, database logs everything</li>
                   </ol>
                   <p className="mt-4 text-sm text-primary font-medium">
-                    13 service integrations. 23 environment variables. Milliseconds of your time.
+                    13 service integrations. 23 environment variables. Zero effort from you.
                   </p>
                 </div>
               </div>
@@ -220,32 +227,37 @@ export default function BudgetInboxProject() {
           <Card className="border-border bg-gradient-to-br from-primary/5 to-primary/10">
             <CardContent className="pt-6">
               <p className="text-lg text-foreground leading-relaxed mb-4">
-                Budget-Inbox started with Amazon receipts. But the platform architecture is designed
-                for so much more.
+                <strong>The insight:</strong> Email captures what really happened. Your bank just shows a lump sum.
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                Budget-Inbox started with Amazon because it's a real problem for real YNAB users (like me).
+                But the same pattern exists everywhere: your bank shows "Target $142.50" while your email
+                shows exactly what you bought. Email is the perfect data source—it captures state, products,
+                timing, everything.
               </p>
               <div className="grid gap-4 md:grid-cols-2 mt-6">
                 <div className="rounded-lg bg-background/50 p-4">
                   <h4 className="font-semibold text-foreground mb-2">More Retailers</h4>
                   <p className="text-sm text-muted-foreground">
-                    Target, Walmart, Costco, Instacart - any receipt by email becomes a YNAB transaction.
+                    Target, Walmart, Costco, Instacart - anywhere you get a detailed email receipt but a lump sum bank transaction.
                   </p>
                 </div>
                 <div className="rounded-lg bg-background/50 p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Smart Categorization</h4>
+                  <h4 className="font-semibold text-foreground mb-2">Learning AI Categories</h4>
                   <p className="text-sm text-muted-foreground">
-                    AI learns your spending patterns and suggests categories that match your budget style.
+                    Claude learns from your corrections and gets better at matching your budget categories over time.
                   </p>
                 </div>
                 <div className="rounded-lg bg-background/50 p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Receipt Photos</h4>
+                  <h4 className="font-semibold text-foreground mb-2">Receipt Photos & PDFs</h4>
                   <p className="text-sm text-muted-foreground">
-                    Took a photo of a paper receipt? Text it or email it. We'll handle the rest.
+                    Physical receipts? Email a photo. PDF statements? Forward them. Same itemization magic.
                   </p>
                 </div>
                 <div className="rounded-lg bg-background/50 p-4">
-                  <h4 className="font-semibold text-foreground mb-2">Enterprise Integrations</h4>
+                  <h4 className="font-semibold text-foreground mb-2">Other Budgeting Platforms</h4>
                   <p className="text-sm text-muted-foreground">
-                    Connect to accounting systems, expense platforms, and financial planning tools.
+                    The platform works for any budgeting system. YNAB today, Mint/EveryDollar/Actual tomorrow.
                   </p>
                 </div>
               </div>
@@ -258,10 +270,10 @@ export default function BudgetInboxProject() {
           <Card className="border-primary/50 bg-primary/5">
             <CardContent className="pt-8 pb-8">
               <h3 className="mb-4 text-2xl font-bold text-foreground">
-                Ready to automate your budget?
+                Stop entering receipts manually
               </h3>
               <p className="mb-6 text-muted-foreground">
-                Try Budget-Inbox and never manually enter an Amazon receipt again.
+                Connect once. Shop normally. Your YNAB budget fills itself in with perfect itemized transactions.
               </p>
               <a href="https://budget-inbox.zach7.dev" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="gap-2">
