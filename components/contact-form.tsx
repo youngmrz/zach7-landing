@@ -57,7 +57,7 @@ export function ContactForm({ children }: ContactFormProps) {
         <DialogHeader>
           <DialogTitle className="text-2xl">Get in Touch</DialogTitle>
           <DialogDescription>
-            Send me a message and I'll get back to you as soon as possible.
+            Have a question or want to discuss an opportunity? Send me a message.
           </DialogDescription>
         </DialogHeader>
 
@@ -106,7 +106,7 @@ export function ContactForm({ children }: ContactFormProps) {
             <Textarea
               id="message"
               name="message"
-              placeholder="Tell me about your project..."
+              placeholder="What would you like to discuss?"
               rows={5}
               required
               disabled={isSubmitting}
@@ -116,7 +116,7 @@ export function ContactForm({ children }: ContactFormProps) {
 
           {submitStatus === "success" && (
             <div className="rounded-lg bg-primary/10 p-3 text-sm text-primary">
-              ✓ Message sent successfully! I'll get back to you soon.
+              ✓ Message sent! I'll get back to you soon.
             </div>
           )}
 
