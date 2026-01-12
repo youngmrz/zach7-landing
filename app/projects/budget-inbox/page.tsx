@@ -34,7 +34,7 @@ export default function BudgetInboxProject() {
             Your bank shows $200. Your budget shows every item.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <a href="https://budget-inbox.zach7.dev" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.budgetinbox.app" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="gap-2">
                 Visit Budget-Inbox
                 <ExternalLink className="h-4 w-4" />
@@ -275,7 +275,7 @@ export default function BudgetInboxProject() {
               <p className="mb-6 text-muted-foreground">
                 Connect once. Shop normally. Your YNAB budget fills itself in with perfect itemized transactions.
               </p>
-              <a href="https://budget-inbox.zach7.dev" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.budgetinbox.app" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="gap-2">
                   Get Started with Budget-Inbox
                   <ExternalLink className="h-4 w-4" />
