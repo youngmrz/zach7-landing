@@ -31,7 +31,7 @@ export default function BudgetInboxProject() {
               Active Project
             </Badge>
 
-            <h1 className="mb-6 text-5xl font-bold tracking-tight lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+            <h1 className="mb-6 text-5xl font-bold tracking-tight lg:text-7xl text-foreground">
               Budget-Inbox
             </h1>
 
