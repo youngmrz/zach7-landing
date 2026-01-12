@@ -22,30 +22,35 @@ export function ContactForm({ children }: ContactFormProps) {
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
-    const formData = new FormData(e.currentTarget)
+    try {
+      const formData = new FormData(e.currentTarget)
 
-    // Web3Forms endpoint
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    })
+      // Web3Forms endpoint
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      })
 
-    const data = await response.json()
+      const data = await response.json()
 
-    if (data.success) {
-      setSubmitStatus("success")
-      // Reset form
-      e.currentTarget.reset()
-      // Close modal after 2 seconds
-      setTimeout(() => {
-        setOpen(false)
-        setSubmitStatus("idle")
-      }, 2000)
-    } else {
+      if (data.success) {
+        setSubmitStatus("success")
+        // Reset form
+        e.currentTarget.reset()
+        // Close modal after 2 seconds
+        setTimeout(() => {
+          setOpen(false)
+          setSubmitStatus("idle")
+        }, 2000)
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
       setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
     }
-
-    setIsSubmitting(false)
   }
 
   return (
