@@ -1,11 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { ArrowRight, Code2, Sparkles, Zap } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-white to-neutral-50 dark:from-black dark:to-neutral-950">
+    <div className="flex min-h-screen flex-col bg-background">
+      {/* Theme Toggle - Fixed top right */}
+      <div className="fixed right-6 top-6 z-50">
+        <ThemeToggle />
+      </div>
+
       {/* Hero Section */}
       <main className="container mx-auto px-6 py-16 lg:py-24">
         <div className="flex flex-col items-center text-center">
@@ -14,11 +20,11 @@ export default function Home() {
             Building the Future
           </Badge>
 
-          <h1 className="mb-6 max-w-4xl text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 lg:text-7xl">
-            zach<span className="text-neutral-600 dark:text-neutral-400">7</span>
+          <h1 className="mb-6 max-w-4xl text-5xl font-bold tracking-tight text-foreground lg:text-7xl">
+            zach<span className="text-primary">7</span>
           </h1>
 
-          <p className="mb-8 max-w-2xl text-xl text-neutral-600 dark:text-neutral-400 lg:text-2xl">
+          <p className="mb-8 max-w-2xl text-xl text-muted-foreground lg:text-2xl">
             Crafting innovative solutions with modern technology.
             <br />
             Building tools that make a difference.
@@ -39,19 +45,19 @@ export default function Home() {
       {/* Features Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-neutral-900 dark:text-neutral-50 lg:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
             What We Build
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Focused on creating efficient, scalable, and user-friendly applications.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="border-neutral-200 dark:border-neutral-800">
+          <Card className="border-border bg-card hover:border-primary/50 transition-colors">
             <CardHeader>
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-900">
-                <Code2 className="h-6 w-6 text-neutral-900 dark:text-neutral-50" />
+              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                <Code2 className="h-6 w-6 text-primary" />
               </div>
               <CardTitle>Modern Development</CardTitle>
               <CardDescription>
@@ -60,10 +66,10 @@ export default function Home() {
             </CardHeader>
           </Card>
 
-          <Card className="border-neutral-200 dark:border-neutral-800">
+          <Card className="border-border bg-card hover:border-primary/50 transition-colors">
             <CardHeader>
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-900">
-                <Zap className="h-6 w-6 text-neutral-900 dark:text-neutral-50" />
+              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                <Zap className="h-6 w-6 text-primary" />
               </div>
               <CardTitle>Performance First</CardTitle>
               <CardDescription>
@@ -72,10 +78,10 @@ export default function Home() {
             </CardHeader>
           </Card>
 
-          <Card className="border-neutral-200 dark:border-neutral-800">
+          <Card className="border-border bg-card hover:border-primary/50 transition-colors">
             <CardHeader>
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-900">
-                <Sparkles className="h-6 w-6 text-neutral-900 dark:text-neutral-50" />
+              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                <Sparkles className="h-6 w-6 text-primary" />
               </div>
               <CardTitle>Beautiful Design</CardTitle>
               <CardDescription>
@@ -89,13 +95,13 @@ export default function Home() {
       {/* Projects Highlight */}
       <section className="container mx-auto px-6 py-16">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-neutral-900 dark:text-neutral-50 lg:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">
             Featured Projects
           </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <Card className="border-neutral-200 dark:border-neutral-800">
+          <Card className="border-border bg-card hover:border-primary/50 transition-colors">
             <CardHeader>
               <div className="mb-2 flex items-center justify-between">
                 <CardTitle>Budget-Inbox</CardTitle>
@@ -115,7 +121,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card className="border-neutral-200 bg-neutral-50/50 dark:border-neutral-800 dark:bg-neutral-950/50">
+          <Card className="border-border bg-muted/50 hover:border-primary/50 transition-colors">
             <CardHeader>
               <div className="mb-2 flex items-center justify-between">
                 <CardTitle>More Coming Soon</CardTitle>
@@ -130,11 +136,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-neutral-200 dark:border-neutral-800">
+      <footer className="mt-auto border-t border-border">
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="text-center md:text-left">
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              <p className="text-sm text-muted-foreground">
                 © {new Date().getFullYear()} zach7. All rights reserved.
               </p>
             </div>
@@ -143,13 +149,13 @@ export default function Home() {
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 GitHub
               </a>
               <a
                 href="mailto:hello@zach7.dev"
-                className="text-sm text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 Contact
               </a>
