@@ -3,7 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ContactForm } from "@/components/contact-form";
-import { ArrowRight, Code2, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Code2, Sparkles, Zap, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -104,25 +105,31 @@ export default function Home() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <Card className="border-border bg-card hover:border-primary/50 transition-colors">
-            <CardHeader>
-              <div className="mb-2 flex items-center justify-between">
-                <CardTitle>Budget-Inbox</CardTitle>
-                <Badge>Active</Badge>
-              </div>
-              <CardDescription>
-                Sync Amazon email receipts to YNAB as itemized split transactions. Built with Next.js, Prisma, and Clerk authentication.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Next.js</Badge>
-                <Badge variant="secondary">TypeScript</Badge>
-                <Badge variant="secondary">Prisma</Badge>
-                <Badge variant="secondary">Clerk</Badge>
-              </div>
-            </CardContent>
-          </Card>
+          <Link href="/projects/budget-inbox" className="group">
+            <Card className="border-border bg-card hover:border-primary/50 transition-all h-full cursor-pointer group-hover:shadow-lg">
+              <CardHeader>
+                <div className="mb-2 flex items-center justify-between">
+                  <CardTitle className="group-hover:text-primary transition-colors">Budget-Inbox</CardTitle>
+                  <Badge>Active</Badge>
+                </div>
+                <CardDescription>
+                  Sync Amazon email receipts to YNAB as itemized split transactions. Built with Next.js, Prisma, and Clerk authentication.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <Badge variant="secondary">Next.js</Badge>
+                  <Badge variant="secondary">TypeScript</Badge>
+                  <Badge variant="secondary">Prisma</Badge>
+                  <Badge variant="secondary">Clerk</Badge>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-primary font-medium group-hover:gap-3 transition-all">
+                  Learn more
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
 
           <Card className="border-border bg-muted/50 hover:border-primary/50 transition-colors">
             <CardHeader>
