@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { ContactForm } from "@/components/contact-form";
 import { ArrowRight, Code2, Sparkles, Zap } from "lucide-react";
 
 export default function Home() {
@@ -35,9 +36,11 @@ export default function Home() {
               View Projects
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline">
-              Get in Touch
-            </Button>
+            <ContactForm>
+              <Button size="lg" variant="outline">
+                Get in Touch
+              </Button>
+            </ContactForm>
           </div>
         </div>
       </main>
